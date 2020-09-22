@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
     
-    - name: Build the site in the jekyll/builder container
-      uses: actions/setup-node@v2-beta
-      with:
-        node-version: 12
+      - name: Build the site in the jekyll/builder container
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
       
-    - name: install surge
-      run: npm install -g surge
-    - name: surge
-      run: surge ./ bootcamplinks2020.surge.sh --token $ {{ secrets.DEPLOY_TOKEN }}
+      - name: install surge
+        run: npm install -g surge
+      - name: surge
+        run: surge ./ bootcamplinks2020.surge.sh --token $ {{ secrets.DEPLOY_TOKEN }}
